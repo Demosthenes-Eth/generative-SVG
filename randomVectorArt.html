@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="svgContainer"></div>
+    </body>
+    <script>
+        let svgElements = ['rect', 'circle', 'ellipse', 'line', 'polyline', 'polygon', 'path', 'use', 'g'];
+        let rectAttributes = ['width', 'height', 'x', 'y', 'rx', 'ry', 'class', 'id'];
+        let circleAttributes = ['r', 'cx', 'cy', 'class', 'id'];
+        let ellipseAttributes = ['rx', 'ry', 'cx', 'cy', 'class', 'id'];
+        let lineAttributes = ['x1', 'y1', 'x2', 'y2', 'class', 'id'];
+        let polylineAttributes = ['points', 'class', 'id'];
+        let polygonAttributes = ['points', 'class', 'id'];
+        let pathAttributes = ['d', 'class', 'id'];
+        let groupAttributes = ['class', 'id'];
+        let pathSubAttributes = ['M', 'L', 'H', 'V', 'C', 'S', 'Q', 'T', 'A', 'Z'];
+        let fillAttributes = ['fill', 'fill-opacity', 'fill-rule'];
+        let fillruleAttributes = ['nonzero', 'evenodd'];
+        let strokeAttributes = ['stroke', 'stroke-width', 'stroke-opacity', 'stroke-linecap', 'stroke-dasharray', 'stroke-linejoin'];
+        let strokelinecapAttributes = ['butt', 'round', 'square'];
+        let strokelinejoinAttributes = ['arcs', 'bevel', 'miter', 'miter-clip', 'round'];
+        let transformFunctions = ['translate', 'scale', 'rotate', 'skewX', 'skewY'];
+        let chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+        let ids = new Set();
+        let classes = new Set();
+        let defs = [];
+        let svgStackSize = 10;
+        let svgStack = [];
+
+
+        //generates a random RGB value and returns a string in the format 'rgb(r, g, b)'
+        const generateRGB = () => {
+            let r = Math.floor(Math.random()*256);
+            let g = Math.floor(Math.random()*256);
+            let b = Math.floor(Math.random()*256);
+            return `rgb(${r}, ${g}, ${b})`;
+        };
+
+        //generates a random opacity value and returns a floating point number inclusive of 0 and 1
+        const generateOpacity = () => {
+            return Math.floor(Math.random()*2);
+        }
+
+        //generates a random id name, adds it to the ids set, and returns the id as a string
+        const generateID = () => {
+            let characterCount = Math.floor(Math.random()*10 + 1);
+            do {
+                let newID = "";
+                for(i = 0; i<characterCount; i++){
+                    let charIndex = Math.floor(Math.Random()*27);
+                    newID += chars[charIndex];
+                }
+            }
+            while (ids.has(newID));
+            ids.add(newID);
+            return newID;
+        }
+
+        //generates a random class name, adds it to the classes set, and returns the class as a string
+        const generateClass = () => {
+            let characterCount = Math.floor(Math.random()*10 + 1);
+            do {
+                let newClass = "";
+                for(i = 0; i<characterCount; i++){
+                    let charIndex = Math.floor(Math.Random()*27);
+                    newClass += chars[charIndex];
+                }
+            }
+            while (classes.has(newClass));
+            classes.add(newClass);
+            return newClass;
+        }
+
+
+
+
+    </script>
+</html>
