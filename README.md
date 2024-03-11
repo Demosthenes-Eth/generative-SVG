@@ -13,6 +13,12 @@ I'm writing this initial proof-of-concept using Javascript with the intention to
 - Finish writing helper functions
 - Write element generator functions
 - Write main SVG generator function
+- Test vanilla JS proof-of-concept
+- Rewrite the proof-of-concept using Solidity and incorporate into an NFT smart contract
+- Test initial inefficient smart contract version
+- Potentially incorporate gas sponsorship logic using ERC-4337
+- Test final smart contract(s) on local testnet
+- Deploy final smart contract(s) to Base, Optimism, Arbitrum, or other L2
 
 **General Conceptualization:**
 - The SVG markup will be conceived of a stack with each layer of the stack representing a layer in the SVG.  The `svgStackSize` variable defines the number of layers available to the SVG image and can be modified per generation like most other aspects of the SVG.  The main SVG generator function will loop using the `svgStackSize` as its counter value and store each returned layer of SVG markup in the `svgStack` array.  The loop will employ `Math.floor(Math.random())` to randomly select an index value for the `svgElements` array which will determine what element gets placed next in the stack.  Once the element has been chosen, the algorithm will call the appropriate element generator function to iterate over the attribute properties of that specific element and call all necessary helper functions to provide the attribute values.
