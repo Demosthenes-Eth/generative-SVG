@@ -19,7 +19,7 @@ I'm writing this initial proof-of-concept using Javascript with the intention to
 
 **Areas Requiring Additional Thought:**
 - Determine the logic how the SVG will handle inherited markup and incorporate the use of inherited markup into the main generator logic.  Right now, my plan is to have the algorithm store inherited markup as `<defs>` and implement them with `<use>`, which is one reason why I'm including id generation in the algorithm.
-- Determine the logic for how the SVG will handle nested elements in relationship to the SVG stack.
+- Determine the logic for how the SVG will handle nested elements in relationship to the SVG stack.  Does `<g></g>` count as 1 stack layer or two?  And what determines if a subsequent element exists inside the container element or outside of it?
 
 **Other Notes:**
 - I am currenly leaving clipping masks, SVG filter effects, and SVG animations out of the algorithm for now because of the added complexity they bring to the table.  But in the future, these could greatly increase the amount of interesting variation possible for each new generation.
